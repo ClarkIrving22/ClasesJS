@@ -45,15 +45,25 @@ tiendas.push(new tienda('Microsoft Store', [outlast, alien, maincra, gta, pes]))
 
 //Funcion para conocer en qué tiendas está disponible un juego indicado
 const encontrarJuegoxTiendas = (nombreDeJuego) => {
-    const respuesta = []
-    for(let auxTiendas of tiendas){
+    const respuesta = [];
+
+    tiendas.map((tienda) => {
+        const juegoEncontrado = tienda.juegos.find((juego) => {
+            return juego.nombre === nombreDeJuego;
+        });
+        if (juegoEncontrado) {
+            respuesta.push(tienda.nombre);
+        }
+    });
+
+    /*for(let auxTiendas of tiendas) {
         for(let auxJuegos of auxTiendas.juegos){
             if(auxJuegos.nombre === nombreDeJuego){
                 respuesta.push(auxTiendas.nombre)
                 break
             }
         }
-    }
+    }*/
     console.log('encontrarJuegoxTiendas:', nombreDeJuego)
     console.log(respuesta)
     console.log()
@@ -63,22 +73,39 @@ const encontrarJuegoxTiendas = (nombreDeJuego) => {
 //Funcion para listar los juegos disponibles de una tienda indicada
 const listarJuegosxTienda = (nombreDeTienda) => {
     console.log('listarJuegosxTienda:', nombreDeTienda)
-    for(let auxTiendas of tiendas){
+
+    const tienda = tiendas.find((tienda) => tienda.nombre === nombreDeTienda);
+
+    if (tienda) {
+        tienda.juegos.map((juego) => console.log(juego));
+    }
+
+    /*for(let auxTiendas of tiendas){
         if(auxTiendas.nombre === nombreDeTienda){
             for(let auxJuegos of auxTiendas.juegos){
                 console.log(auxJuegos)
             }
             break
         }
-    }
+    }*/
     console.log()
     console.log()
 }
 
 //Funcion para listar juegos de cierta clasificacion y editar la misma
 const listarJuegosxClasificacion = (nombreClasificacion, nuevaClasificacion) => {
-    const respuesta = []
-    for(let auxTiendas of tiendas){
+    //const respuesta = [];
+    
+    tiendas.map((tienda) => {
+        tienda.juegos.map((juego) => {
+            if (juego.clasificacion === nombreClasificacion) {
+                juego.clasificacion = nuevaClasificacion;
+                console.log(juego);
+            }
+        });
+    });
+
+    /*for(let auxTiendas of tiendas){
         for(let auxJuegos of auxTiendas.juegos){
             if(auxJuegos.clasificacion === nombreClasificacion){
                 auxJuegos.clasificacion = nuevaClasificacion
@@ -87,7 +114,7 @@ const listarJuegosxClasificacion = (nombreClasificacion, nuevaClasificacion) => 
         }
     }
     console.log('listarJuegosxClasificacion:',nombreClasificacion,' y cambiada a:', nuevaClasificacion)
-    console.log(respuesta)
+    console.log(respuesta)*/
 }
 
 console.log()
