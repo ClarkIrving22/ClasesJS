@@ -32,13 +32,14 @@ function isCousin(numero){
         if(numero % i === 0) return false;
     return numero > 1;
 }
+
 const arreglo4 = [];
 let j=2;
 while(arreglo4.length<=100){
     if(isCousin(j)) arreglo4.push(j);
     j++;
 }
-console.log(arreglo4);
+console.table(arreglo4);
 console.log();
 
 
