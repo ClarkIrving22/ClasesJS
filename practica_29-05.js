@@ -82,3 +82,14 @@ const buscarPelicula = (nombrePelicula) => {
     }, []))
 }
 console.table(buscarPelicula("It 1"));
+
+
+/*
+NOTAS:
+crear funciones especifícas que tengan como propósito, dividir en tareas pequeñas los ejercicios.
+Para cada ejercicio crear una función para que simplifique la revisión
+Cambiar los parametros de las funciones por parametros nombrados
+Hacer el ejercicio 4
+Identar
+Mejorar el tiempo de la busqueda usando un objeto
+*/
